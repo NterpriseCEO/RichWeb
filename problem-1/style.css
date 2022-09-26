@@ -1,0 +1,23 @@
+.flex-grid {
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid black;
+}
+
+.flex-item {
+	width: 25%;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+@media all and (max-width: 720px) {
+	.flex-item {
+		width: 50%;
+	}
+}
+
+@media all and (max-width: 360px) {
+	.flex-item {
+		width: 100%;
+	}
+}
