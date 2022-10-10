@@ -4,9 +4,33 @@
     "version": "1.0.0",
     "content_scripts": [
         {
-        "matches": ["<all_urls>"],
-        "js": ["Content.js"]
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "Content.js"
+            ]
         }
-    ] 
-    
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "Nokia_Tune.mp3",
+                "Oh_No_No_No_Laugh.mp3",
+                "Ohhh_My_God_Meme.mp3",
+                "Scrambling_Fred_Flinstone.mp3",
+                "Skype_Troll.mp3",
+                "Spongebob_Wee_Woo.mp3",
+                "Taz_Cartoon.mp3",
+                "Vsauce.mp3",
+                "Whatsapp.mp3",
+                "Why_Are_You_Running.mp3",
+                "Windows_Error.mp3",
+                "Windows_XP_Shutdown.mp3"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
 }

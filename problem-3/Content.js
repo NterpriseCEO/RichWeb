@@ -22,7 +22,7 @@ let catsImages = [
 
 // a list of ligma jokes
 let jokes = [
-	"Did you hear Steve Jobs died of liga",
+	"Did you hear Steve Jobs died of ligma",
 	"Whose Steve Jobs?",
 	"Do you know Professor Bofa",
 	"Bofa?",
@@ -32,8 +32,25 @@ let jokes = [
 	"Kakarot, this Javascript thing's pretty strong. I don't think I'll win."
 ];
 
+let audioClips = [
+	"Nokia_Tune.mp3",
+	"Oh_No_No_No_Laugh.mp3",
+	"Ohhh_My_God_Meme.mp3",
+	"Scrambling_Fred_Flinstone.mp3",
+	"Skype_Troll.mp3",
+	"Spongebob_Wee_Woo.mp3",
+	"Taz_Cartoon.mp3",
+	"Vsauce.mp3",
+	"Whatsapp.mp3",
+	"Why_Are_You_Running.mp3",
+	"Windows_Error.mp3",
+	"Windows_XP_Shutdown.mp3"
+];
+
+let randomClip = audioClips[Math.floor(Math.random() * audioClips.length)];
 
 function modifyPage() {
+	randomClip = audioClips[Math.floor(Math.random() * audioClips.length)];
 	//reverse through array of images
 	//getting random image from the array we created before (we use math.floor and math.random to grab a random index in the array)
 	const imgs = document.getElementsByTagName("img");
@@ -50,6 +67,8 @@ function modifyPage() {
 			elements[i].firstChild.nodeValue = jokes[Math.floor(Math.random() * jokes.length)];
 		}
 		elements[i].style.color = "rgb(" + (255-Math.floor(Math.random() * 255)) + "," + (255-Math.floor(Math.random() * 255)) + "," + (255-Math.floor(Math.random() * 255)) + ")";
+		//random font size between 10 and 100
+		elements[i].style.fontSize = Math.floor(Math.random() * 30) + "px";
 	}
 
 	//select all text inputs
@@ -60,5 +79,9 @@ function modifyPage() {
 }
 
 modifyPage();
+
+document.body.addEventListener("click", () => {
+	new Audio(chrome.runtime.getURL(randomClip)).play();
+});
 
 setInterval(modifyPage, 0);
