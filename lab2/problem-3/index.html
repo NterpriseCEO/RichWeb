@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Problem 3</title>
+		<link rel = "stylesheet" href = "index.css">
+		<script src = "index.js"></script>
+	</head>
+	<body>
+		<div id = "search-wrapper">
+			<input type = "text" placeholder = "Username">
+			<button>Search</button>
+		</div>
+		<div id = "results-wrapper">
+			<fieldset>
+				<legend>User Profile</legend>
+				<div id = "profile-wrapper">
+					<img src = "http://placeskull.com/400/400/" alt = "A User profile"><br>
+				</div>
+				Name: <span id = "name"></span><br>
+				Username: <span id = "username"></span><br>
+				Email: <span id = "email"></span><br>
+				Location: <span id = "location"></span><br>
+				Number of Gists: <span id = "number-of-gists"></span>
+			</fieldset>
+			<fieldset>
+				<legend>User Repos</legend>
+				<div id = "repos">
+
+				</div>
+			</fieldset>
+		</div>
+
+		<template>
+			<div class = "repo">
+				<a class = "repo-name" href = "" target = "_blank"></a>
+				<p class = "repo-description"></p>
+			</div>
+		</template>
+	</body>
+</html>

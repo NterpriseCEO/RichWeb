@@ -1,0 +1,37 @@
+<html>
+	<head>
+    	 <title>Phone Directory</title>
+		 <script src="index.js"></script>
+		 <link rel = "stylesheet" href = "index.css">
+	</head>
+	<body>
+		<div id = "error-wrapper" class = "hidden">
+			<div id = "error">
+				<p id = "error-message"></p>
+				<button id = "close-error-message">Ok</button>
+			</div>
+		</div>
+		<div>
+			<input id = "contact-name" type = "text" placeholder = "Contact name">
+			<input id = "mobile-number" type = "tel" placeholder = "Mobile Number">
+			<input id = "email" type = "email" placeholder = "Email">
+			<button id = "add-contact">Add Contact</button>
+		</div><br>
+		<div>
+			Search contact by mobile number: <input id = "telephone-search" type="tel">
+		</div><br>
+		<table>
+			<thead>
+				<th id = "sort">Name</th>
+				<th>Mobile</th>
+				<th>Email</th>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+		<div id = "noResult" class = "hidden">
+			<p>No results</p>
+		</div>
+	</body>
+</html>
