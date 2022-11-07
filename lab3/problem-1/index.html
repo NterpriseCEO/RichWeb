@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Note taking app</title>
+		<link rel = "stylesheet" href = "style.css">
+		<!-- RXJS import -->
+		<script src = "https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script>
+		<script src = "index.js"></script>
+	</head>
+
+	<body>
+		<textarea id = "note-input" type = "text" placeholder = "Type a note here" rows = "10"></textarea>
+		<div class = "flex">
+			<label for = "select-note-colour">Select note colour: </label>
+			<select id = "select-note-colour">
+				<option value = "red">Red</option>
+				<option value = "orange">Orange</option>
+				<option value = "yellow">Yellow</option>
+				<option value = "green">Green</option>
+				<option value = "blue">Blue</option>
+			</select>
+			<button id = "create-note-button">Create note</button>
+		</div>
+		<div id = "notes">
+
+		</div>
+
+		<template>
+			<div class = "note flex space-between">
+				<pre class = "note-contents"></pre>
+				<div>
+					<button class = "delete-note-button">Delete note</button>
+					<button class = "edit-note-button">Edit note</button>
+					<button class = "cancel-note-edit-button hidden">Cancel note edit</button>
+				</div>
+			</div>
+		</template>
+	</body>
+</html>
