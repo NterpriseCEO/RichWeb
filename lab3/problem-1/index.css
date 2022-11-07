@@ -1,0 +1,30 @@
+.flex {
+    display: flex;
+}
+
+#note-input {
+    width: 100%;
+    margin-bottom: 10px;
+    resize: none;
+}
+#select-note-colour {
+    margin-right: 10px;
+}
+
+.note {
+    padding: 10px;
+    margin: 10px 0;
+    color: white;
+}
+
+.note-contents {
+    padding: 10px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
