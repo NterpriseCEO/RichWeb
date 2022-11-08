@@ -1,7 +1,8 @@
 window.onload = function() {
 	let hoursInput = document.getElementById("hours-input"),
 		minutesInput = document.getElementById("minutes-input"),
-		secondsInput = document.getElementById("seconds-input");
+		secondsInput = document.getElementById("seconds-input"),
+		countdownDisplay = document.getElementById("countdown");
 
 	let countdown;
 
@@ -31,7 +32,17 @@ window.onload = function() {
 			.takeWhile(i => i >= 0);
 
 		countdown.subscribe((counter) => {
-			console.log(counter);
+			//convert counter to HMS
+			let hours = Math.floor(counter / 3600),
+				minutes = Math.floor((counter - (hours * 3600)) / 60),
+				seconds = counter - (hours * 3600) - (minutes * 60);
+
+			//pads 0 to the left of the number if it is less than 10
+			hours = hours < 10 ? "0" + hours : hours;
+			minutes = minutes < 10 ? "0" + minutes : minutes;
+			seconds = seconds < 10 ? "0" + seconds : seconds;
+
+			countdownDisplay.innerHTML = hours + ": "+minutes + ": " + seconds;
 		});
 	});
 }
