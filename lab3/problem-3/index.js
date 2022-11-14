@@ -7,7 +7,7 @@ window.onload = function() {
 
 		if (noteValue) {
 			let note = new Note(noteValue);
-			note.printNote();
+			note.addNote();
 		}
 	});
 }
@@ -22,8 +22,15 @@ class Note {
 		this.#note = note;
 	}
 
-	printNote() {
-		console.log("fuck you javascript")
-		console.log(this.#note);
+	addNote() {
+		//reference the parent-note template
+		let parentNoteTemplate = document.getElementById("parent-note"),
+			clone = parentNoteTemplate.content.cloneNode(true),
+			noteDiv = clone.querySelector(".note"),
+			noteText = clone.querySelector(".note-text");
+
+		noteText.innerHTML = this.#note;
+
+		document.body.appendChild(noteDiv);
 	}
 }
