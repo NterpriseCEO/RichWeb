@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<link rel = "stylesheet" href = "index.css">
+	</head>
+	<body>
+		<div id = "note-creation">
+			<textarea id = "note-input" rows = "5"></textarea>
+			<button id = "add-note">Add note</button>
+		</div>
+
+		<!-- Parent note template -->
+		<template id = "parent-note">
+			<div class = "note">
+				<div class = "note-text"></div>
+				<textarea placeholder = "Child note text"></textarea>
+				<button class = "add-child-note">Add child note</button>
+				<button class = "remove-note">Remove note and its children</button>
+			</div>
+		</template>
+		<template id = "child-note">
+			<div class = "note">
+				<div class = "note-text"></div>
+			</div>
+		</template>
+	</body>
+</html>
