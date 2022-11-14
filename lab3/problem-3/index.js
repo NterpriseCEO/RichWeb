@@ -23,6 +23,8 @@ class Note {
 	#parentNoteTemplate;
 	#clone;
 
+	#noteDiv;
+
 	constructor(note, parent) {
 		this.#note = note;
 
@@ -41,20 +43,29 @@ class Note {
 
 		noteText.innerHTML = this.#note;
 
+		this.#noteDiv = noteDiv;
+
 		document.body.appendChild(noteDiv);
 
 		this.listenForAddChildNote(noteDiv);
+
+		this.observeRemove().subscribe(() => {
+			noteDiv.remove();
+		});
+
+		if(this.#parent) {
+			this.#parent.observeRemove().subscribe(() => {
+				noteDiv.remove();
+			});
+		}
 	}
 
 	listenForAddChildNote(noteDiv) {
-		//listen for the add child note button
-		//create a new note
-		//add the new note to the parent note
 		let addChildNoteButton = noteDiv.querySelector(".add-child-note"),
 			childNoteInput = noteDiv.querySelector(".child-note-input");
 		Rx.Observable.fromEvent(addChildNoteButton, 'click').subscribe(() => {
 			let childNoteValue = childNoteInput.value;
-			
+
 			childNoteInput.value = "";
 
 			if(childNoteValue) {
@@ -62,5 +73,10 @@ class Note {
 				childNote.addNote();
 			}
 		});
+	}
+
+	observeRemove() {
+		let deleteButton = this.#noteDiv.querySelector(".remove-note");
+		return Rx.Observable.fromEvent(deleteButton, 'click');
 	}
 }
