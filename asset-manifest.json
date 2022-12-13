@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/notes-app/static/css/main.073c9b0a.css",
-    "main.js": "/notes-app/static/js/main.f55b236c.js",
-    "static/js/787.9ac04e85.chunk.js": "/notes-app/static/js/787.9ac04e85.chunk.js",
-    "static/media/logo.svg": "/notes-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/notes-app/index.html",
-    "main.073c9b0a.css.map": "/notes-app/static/css/main.073c9b0a.css.map",
-    "main.f55b236c.js.map": "/notes-app/static/js/main.f55b236c.js.map",
-    "787.9ac04e85.chunk.js.map": "/notes-app/static/js/787.9ac04e85.chunk.js.map"
+    "main.css": "/richWeb/static/css/main.073c9b0a.css",
+    "main.js": "/richWeb/static/js/main.0708a35d.js",
+    "static/js/787.9ac04e85.chunk.js": "/richWeb/static/js/787.9ac04e85.chunk.js",
+    "static/media/logo.svg": "/richWeb/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/richWeb/index.html",
+    "main.073c9b0a.css.map": "/richWeb/static/css/main.073c9b0a.css.map",
+    "main.0708a35d.js.map": "/richWeb/static/js/main.0708a35d.js.map",
+    "787.9ac04e85.chunk.js.map": "/richWeb/static/js/787.9ac04e85.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.f55b236c.js"
+    "static/js/main.0708a35d.js"
   ]
 }
