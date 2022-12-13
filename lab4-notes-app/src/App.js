@@ -4,10 +4,15 @@ import React from 'react';
 //notes class
 function Note(props) {
 	return (
-		<pre className="note" style={{ backgroundColor: props.colour }}>
-			{props.note}
-		</pre>
+		<div className="note">
+			<pre style={{ backgroundColor: props.colour }}>
+				{props.note}
+			</pre>
+			<button onClick={props.onClick}>Delete</button>
+		</div>
 	);
+
+
 }
 
 class Panel extends React.Component {
@@ -35,7 +40,6 @@ class Panel extends React.Component {
 					{this.state.displayNotes}
 				</div>
 			</div>
-
 		);
 	}
 
@@ -44,7 +48,6 @@ class Panel extends React.Component {
 	}
 
 	changeColour = event => {
-		console.log(event.target.value);
 		this.colourValue = event.target.value;
 	}
 
@@ -57,12 +60,27 @@ class Panel extends React.Component {
 		this.state.notes.push({note: this.textInput, colour: this.colourValue});
 		this.textInput = "";
 		//Updates the displayNotes array with the contents of the notes array
+		this.populateDisplayNotes();
+	}
+
+	removeNote(index) {
+		this.state.notes.splice(index, 1);
+		this.populateDisplayNotes();
+	}
+
+	populateDisplayNotes() {
 		this.setState({
 			displayNotes: this.state.notes.map((note, index) => {
-				return <Note key={index} note = {note.note} colour = {note.colour}/>
+				return <Note
+					key = {index}
+					note = {note.note}
+					colour = {note.colour}
+					onClick={() => this.removeNote(index)}
+				/>
 			})
 		});
 	}
+
 }
 
 function App() {
