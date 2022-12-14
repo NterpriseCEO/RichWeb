@@ -5,7 +5,7 @@ window.onload = function() {
 
 	const template = document.querySelector("template");
 
-	Rx.Observable.fromEvent(createNoteButton, 'click').subscribe(() => {
+	createNoteButton.addEventListener('click', function () {
 		if(noteInput.value) {
 			const clone = template.content.cloneNode(true);
 			const note = clone.querySelector('.note');
@@ -26,7 +26,7 @@ window.onload = function() {
 	});
 
 	function deleteNote(deleteNoteButton, note) {
-		Rx.Observable.fromEvent(deleteNoteButton, 'click').subscribe(() => {
+		deleteNoteButton.addEventListener('click', function () {
 			note.remove();
 		});
 	}
@@ -34,7 +34,7 @@ window.onload = function() {
 	function editNote(editNoteButton, noteContents, cancelNoteEditButton) {
 		const oldContents = noteContents.innerHTML;
 		let isEditing = false;
-		Rx.Observable.fromEvent(editNoteButton, 'click').subscribe(() => {
+		editNoteButton.addEventListener('click', function () {
 			isEditing = !isEditing;
 			isEditing ? cancelNoteEditButton.classList.remove('hidden') : cancelNoteEditButton.classList.add('hidden');
 			editNoteButton.innerHTML = isEditing ? 'Save' : 'Edit note';
@@ -43,7 +43,7 @@ window.onload = function() {
 			noteContents.focus();
 		});
 
-		Rx.Observable.fromEvent(cancelNoteEditButton, 'click').subscribe(() => {
+		cancelNoteEditButton.addEventListener('click', function () {
 			isEditing = false;
 			noteContents.contentEditable = false;
 			editNoteButton.innerHTML = 'Edit note';

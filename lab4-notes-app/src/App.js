@@ -8,17 +8,19 @@ function Note(props) {
 	let [note, setNote] = useState(props.note);
 	
 	return (
-		<div className="note">
-			<pre style={{ backgroundColor: props.colour }}>
+		<div className="note flex space-between" style={{ backgroundColor: props.colour }}>
+			<pre class = "note-contents">
 				{note}
 			</pre>
-			<button onClick={()=> {
-				setEdit(!edit);
-				if(edit) {
-					props.edit(note);
-				}
-			}}>{edit ? "Save" : "Edit" }</button>
-			<button onClick={props.onClick}>Delete</button>
+			<div>
+				<button onClick={()=> {
+					setEdit(!edit);
+					if(edit) {
+						props.edit(note);
+					}
+				}}>{edit ? "Save" : "Edit" }</button>
+				<button onClick={props.onClick}>Delete</button>
+			</div>
 			{edit ? <textarea onChange={(event) => setNote(event.target.value)} value = {note}></textarea> : null}
 		</div>
 	);
@@ -41,10 +43,19 @@ class Panel extends React.Component {
 
 	render() {
 		return (
-			<div className="panel">
-				<textarea onChange={this.changeValue}></textarea>
-				<input type = "color" onChange={this.changeColour} defaultValue = "#ffffff"></input>
-				<button onClick={() => this.addNote()}>Add note</button>
+			<div>
+				<textarea
+					id = "note-input"
+					rows = "10"
+					onChange={this.changeValue}
+					placeholder = "Type a note here"
+				>
+				</textarea>
+				<div className="flex">
+					Select note colour:
+					<input type = "color" onChange={this.changeColour} defaultValue = "#ffffff"></input>&nbsp;
+					<button onClick={() => this.addNote()}>Create note</button>
+				</div>
 				<div className="notes">
 					{this.state.displayNotes}
 				</div>
@@ -81,14 +92,14 @@ class Panel extends React.Component {
 		this.setState({
 			displayNotes: this.state.notes.map((note, index) => {
 				return <Note
-				key = {index}
-				note = {note.note}
-				colour = {note.colour}
-				onClick={() => this.removeNote(index)}
-				edit = {newNoteText => {
-					console.log("new note text: " + newNoteText);
-					this.updateNote(index, newNoteText);
-				}}
+					key = {index}
+					note = {note.note}
+					colour = {note.colour}
+					onClick={() => this.removeNote(index)}
+					edit = {newNoteText => {
+						console.log("new note text: " + newNoteText);
+						this.updateNote(index, newNoteText);
+					}}
 				/>
 			})
 		});

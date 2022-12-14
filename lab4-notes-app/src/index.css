@@ -1,13 +1,23 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.flex {
+  display: flex;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#note-input {
+  width: 100%;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.note {
+  padding: 10px;
+  margin: 10px 0;
+  color: white;
+}
+
+.note-contents {
+  padding: 10px;
+}
+
+.space-between {
+  justify-content: space-between;
 }
