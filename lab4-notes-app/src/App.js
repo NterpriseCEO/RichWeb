@@ -1,18 +1,27 @@
 import './App.css';
 import React from 'react';
+import { useState } from 'react';
 
 //notes class
 function Note(props) {
+	let [edit, setEdit] = useState(false);
+	let [note, setNote] = useState(props.note);
+	
 	return (
 		<div className="note">
 			<pre style={{ backgroundColor: props.colour }}>
-				{props.note}
+				{note}
 			</pre>
+			<button onClick={()=> {
+				setEdit(!edit);
+				if(edit) {
+					props.edit(note);
+				}
+			}}>{edit ? "Save" : "Edit" }</button>
 			<button onClick={props.onClick}>Delete</button>
+			{edit ? <textarea onChange={(event) => setNote(event.target.value)} value = {note}></textarea> : null}
 		</div>
 	);
-
-
 }
 
 class Panel extends React.Component {
@@ -72,15 +81,30 @@ class Panel extends React.Component {
 		this.setState({
 			displayNotes: this.state.notes.map((note, index) => {
 				return <Note
-					key = {index}
-					note = {note.note}
-					colour = {note.colour}
-					onClick={() => this.removeNote(index)}
+				key = {index}
+				note = {note.note}
+				colour = {note.colour}
+				onClick={() => this.removeNote(index)}
+				edit = {newNoteText => {
+					console.log("new note text: " + newNoteText);
+					this.updateNote(index, newNoteText);
+				}}
 				/>
 			})
 		});
 	}
 
+	updateNote(index, newNoteText) {
+		this.setState({
+			notes: this.state.notes.map((note2, index2) => {
+				if(index === index2) {
+					note2.note = newNoteText;
+				}
+				return note2;
+			})
+		});
+		console.log(this.state.notes);
+	}
 }
 
 function App() {
