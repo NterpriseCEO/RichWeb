@@ -89,15 +89,15 @@ class Panel extends React.Component {
 	}
 
 	populateDisplayNotes() {
+		//Updates the displayNotes array with the contents of the notes array
 		this.setState({
 			displayNotes: this.state.notes.map((note, index) => {
 				return <Note
-					key = {index}
 					note = {note.note}
 					colour = {note.colour}
 					onClick={() => this.removeNote(index)}
 					edit = {newNoteText => {
-						console.log("new note text: " + newNoteText);
+						// Updates the contents of the note at the specified index
 						this.updateNote(index, newNoteText);
 					}}
 				/>
@@ -106,6 +106,7 @@ class Panel extends React.Component {
 	}
 
 	updateNote(index, newNoteText) {
+		// Updates the contents of the note at the specified index
 		this.setState({
 			notes: this.state.notes.map((note2, index2) => {
 				if(index === index2) {
@@ -114,7 +115,6 @@ class Panel extends React.Component {
 				return note2;
 			})
 		});
-		console.log(this.state.notes);
 	}
 }
 
