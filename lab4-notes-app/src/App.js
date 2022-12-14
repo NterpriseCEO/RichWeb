@@ -9,7 +9,7 @@ function Note(props) {
 	
 	return (
 		<div className="note flex space-between" style={{ backgroundColor: props.colour }}>
-			<pre class = "note-contents">
+			<pre className = "note-contents">
 				{note}
 			</pre>
 			<div>
@@ -93,6 +93,7 @@ class Panel extends React.Component {
 		this.setState({
 			displayNotes: this.state.notes.map((note, index) => {
 				return <Note
+					key = {index}
 					note = {note.note}
 					colour = {note.colour}
 					onClick={() => this.removeNote(index)}
